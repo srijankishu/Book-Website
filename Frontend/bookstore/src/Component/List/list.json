@@ -1,0 +1,102 @@
+
+[
+    {
+        "id": 1,
+        "name": "Story Book",
+        "title": "Book 1",
+        "author": "Author 1",
+        "price": 0.00,
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg",
+        "category": "Free"
+    },
+    {
+        "id": 2,
+        "name": "Story Book",
+        "title": "Book 1",
+        "author": "Author 1",
+        "price": 0.00,
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg",
+        "category": "Free"
+    },
+    {
+        "id": 3,
+        "name": "Story Book",
+        "title": "Book 1",
+        "author": "Author 1",
+        "price": 0.00,
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg",
+        "category": "Free"
+    },
+    {
+        "id": 4,
+        "name": "Story Book",
+        "title": "Book 1",
+        "author": "Author 1",
+        "price": 0.00,
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg",
+        "category": "Free"
+    },
+    {
+        "id": 5,
+        "name": "Story Book",
+        "title": "Book 1",
+        "author": "Author 1",
+        "price": 0.00,
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg",
+        "category": "Free"
+    },
+    {
+        "id": 6,
+        "name": "Science Fiction",
+        "title": "Book 1",
+        "author": "Author 1",
+        "price": 40,
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg",
+        "category": "Futuristic"
+    },
+    {
+        "id": 7,
+        "name": "Mystery",
+        "title": "Book 1",
+        "author": "Author 1",
+        "price": 100,
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg",
+        "category": "Suspense"
+    },
+    {
+        "id": 8,
+        "name": "Story Book",
+        "title": "Book 1",
+        "author": "Author 1",
+        "price": 0.00,
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg",
+        "category": "Free"
+    },
+    {
+        "id": 9,
+        "name": "Non-Fiction",
+        "title": "Book 1",
+        "author": "Author 1",
+        "price": 50,
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg",
+        "category": "Factual"
+    },
+    {
+        "id": 10,
+        "name": "Fiction",
+        "title": "Book 1",
+        "author": "Author 1",
+        "price": 20,
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg",
+        "category": "Imaginative"
+    },
+    {
+        "id": 11,
+        "name": "Story Book",
+        "title": "Book 1",
+        "author": "Author 1",
+        "price": 0.00,
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg",
+        "category": "Free"
+    }
+]
