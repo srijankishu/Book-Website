@@ -26,7 +26,7 @@ const Srijan = () => {
 
   const getPdf = async () => {
     try {
-      const result = await axios.get("http://localhost:4001/get-files");
+      const result = await axios.get("https://book-website-flame.vercel.app/get-files");
       setAllImage(result.data.data);
     } catch (error) {
       console.error("Error fetching PDFs:", error.response ? error.response.data : error.message);
@@ -57,7 +57,7 @@ const Srijan = () => {
     formData.append('category', category);
 
     try {
-      await axios.post("http://localhost:4001/book", formData, {
+      await axios.post("https://book-website-flame.vercel.app/book", formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -87,7 +87,7 @@ const Srijan = () => {
     }
   
     try {
-      await axios.post("http://localhost:4001/deleteBook", { id });
+      await axios.post("https://book-website-flame.vercel.app/deleteBook", { id });
       console.log("Book deleted successfully");
     } catch (error) {
       console.error("Error deleting book:", error.response ? error.response.data : error.message);
