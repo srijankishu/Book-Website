@@ -1,32 +1,30 @@
 import express from 'express';
-// Remove dotenv import for now
+import dotenv from 'dotenv';
 import serveIndex from 'serve-index';
 import mongoose from 'mongoose';
 import bookroute from './route/book.route.js';
 import userroute from './route/user.route.js';
 import cors from 'cors'; 
 import multer from 'multer';
-import pdfDetails from './pdf.model.js';
 import fs from 'fs';
 import path from 'path';
 import Book from './book.model.js';
 
+dotenv.config(); // Load environment variables
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use("/files", express.static("files"))
+app.use("/files", express.static("files"));
 
-// Use a hard-coded MongoDB URI for testing
-const PORT = 4001;
-const URI = "mongodb://localhost:27017/bookstore"; // Replace this with your actual MongoDB URI
+const PORT = process.env.PORT || 4000;
+const URI = process.env.MongoDbURI || "mongodb://localhost:27017/bookstore"; // Fallback for local testing
 
 async function connectToDB() {
+  console.log("Attempting to connect to MongoDB at URI:", URI); // Log URI
   try {
     if (!URI) throw new Error("MongoDbURI is not defined");
 
-    await mongoose.connect(URI, {
-      // Deprecated options removed
-    });
+    await mongoose.connect(URI);
     console.log('Connected to MongoDB');
   } catch (error) {
     console.log("Error connecting to MongoDB:", error);
@@ -37,11 +35,10 @@ connectToDB();
 
 app.get("/get-files", async (req, res) => {
   try {
-    Book.find({}).then((data) => {
-      res.send({
-        status: "ok",
-        data: data,
-      });
+    const data = await Book.find({});
+    res.send({
+      status: "ok",
+      data: data,
     });
   } catch (error) {
     res.status(500).send({
@@ -51,7 +48,6 @@ app.get("/get-files", async (req, res) => {
   }
 });
 
-// Storage and upload configuration
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     const dir = './files';
@@ -64,8 +60,8 @@ const storage = multer.diskStorage({
     cb(null, dir);
   },
   filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() 
-    cb(null, uniqueSuffix + file.originalname);
+    const uniqueSuffix = Date.now();
+    cb(null, uniqueSuffix + '-' + file.originalname);
   }
 });
 
@@ -73,20 +69,22 @@ const upload = multer({ storage: storage });
 
 app.post("/book", upload.single("file"), async (req, res) => {
   try {
+    console.log(req.file); // Log the uploaded file details
     const { id, title, name, author, price, image, category } = req.body;
     const fileName = req.file.filename;
-    res.status(200).send("File uploaded successfully.");
-
+    
     await Book.create({
-      id,
-      name,
-      author,
-      title,
-      price,
-      image,
-      category,
+      id: id,
+      name: name,
+      author: author,
+      title: title,
+      price: price,
+      image: image,
+      category: category,
       pdf: fileName
     });
+
+    res.status(200).send("File uploaded successfully.");
   } catch (error) {
     console.log(error);
     return res.status(500).send("Error uploading file");
@@ -113,13 +111,15 @@ app.post("/deleteBook", async (req, res) => {
   }
 });
 
+// Use routes for books and users
 app.use("/book/", bookroute);
 app.use("/user/", userroute);
 
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
   res.send("Hello");
 });
 
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server app listening on port ${PORT}`);
 });
