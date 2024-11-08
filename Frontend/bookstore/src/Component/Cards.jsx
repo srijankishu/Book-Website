@@ -16,7 +16,7 @@ const Cards = ({ item }) => {
   useEffect(() => {
     const getPdf = async () => {
       try {
-        const result = await axios.get("https://book-website-flame.vercel.app/get-files");
+        const result = await axios.get("https://book-website-gamma.vercel.app/get-files");
         setAllImage(result.data.data); // Assuming the response contains an array of PDFs
       } catch (error) {
         console.error("Error fetching PDFs:", error.response ? error.response.data : error.message);
