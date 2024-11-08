@@ -9,7 +9,7 @@ const PdfViewer = () => {
 
   useEffect(() => {
     if (pdfPath) {
-      setPdfFile(`https://book-website-flame.vercel.app/files/${decodeURIComponent(pdfPath)}`); // Construct the PDF URL
+      setPdfFile(`https://book-website-gamma.vercel.app/files/${decodeURIComponent(pdfPath)}`); // Construct the PDF URL
     }
   }, [pdfPath]);
 
