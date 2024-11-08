@@ -9,7 +9,7 @@ const Course = () => {
   useEffect(() =>{
     const getBook = async () => {
     try{
-      const res = await axios.get(https://book-website-gamma.vercel.app/book');
+      const res = await axios.get('http://localhost:4001/book');
     
       setbook(res.data);
 
