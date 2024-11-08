@@ -20,7 +20,7 @@ export const Signup = () => {
           password: data.password,
           email: data.email, 
         };
-         await axios.post("https://book-website-gamma.vercel.app/user/signup", userInfo)
+         await axios.post("http://localhost:4001/user/signup", userInfo)
         .then((res)=>{
           console.log(res.data);
           if(res.data){
