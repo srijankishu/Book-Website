@@ -9,7 +9,7 @@ const ReadBook = ({ bookId }) => {
   useEffect(() => {
     const fetchBookPDF = async () => {
       try {
-        const res = await axios.get(`http://localhost:4001/dpdf/${bookId}/pdf`);
+        const res = await axios.get(`https://book-website-gamma.vercel.app/dpdf/${bookId}/pdf`);
         setPdfPath(res.data.pdfPath); 
       } catch (err) {
         console.error('Error fetching books:', err); 
@@ -31,7 +31,7 @@ const ReadBook = ({ bookId }) => {
         <p>{error}</p>
       ) : (
         <iframe 
-          src={`http://localhost:4001${pdfPath}`} 
+          src={`https://book-website-gamma.vercel.app/${pdfPath}`} 
           width="100%" 
           height="100%"  // Ensures full height
           className="border-none" // Removes iframe border
