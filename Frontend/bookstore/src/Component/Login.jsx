@@ -18,7 +18,7 @@ const Login = () => {
       
     };
     console.log(userInfo)
-     await axios.post("https://book-website-flame.vercel.app/user/login", userInfo)
+     await axios.post("https://book-website-gamma.vercel.app/user/login", userInfo)
     .then((res)=>{
       console.log(res.data);
       if(res.data){
